@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20A8829A24AF589900DBAA83 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 20A8829924AF589900DBAA83 /* FacebookCore */; };
+		20A8829C24AF589900DBAA83 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 20A8829B24AF589900DBAA83 /* FacebookLogin */; };
+		20A8829E24AF589900DBAA83 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 20A8829D24AF589900DBAA83 /* FacebookShare */; };
 		A0F81AE71C7EF57A0008AE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F81AE61C7EF57A0008AE8F /* AppDelegate.swift */; };
 		A0F81AE91C7EF57A0008AE8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F81AE81C7EF57A0008AE8F /* ViewController.swift */; };
 		A0F81AEC1C7EF57A0008AE8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F81AEA1C7EF57A0008AE8F /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A8829C24AF589900DBAA83 /* FacebookLogin in Frameworks */,
+				20A8829A24AF589900DBAA83 /* FacebookCore in Frameworks */,
+				20A8829E24AF589900DBAA83 /* FacebookShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,11 @@
 			dependencies = (
 			);
 			name = SelfiePactice;
+			packageProductDependencies = (
+				20A8829924AF589900DBAA83 /* FacebookCore */,
+				20A8829B24AF589900DBAA83 /* FacebookLogin */,
+				20A8829D24AF589900DBAA83 /* FacebookShare */,
+			);
 			productName = SelfiePactice;
 			productReference = A0F81AE31C7EF57A0008AE8F /* SelfiePactice.app */;
 			productType = "com.apple.product-type.application";
@@ -146,7 +157,6 @@
 				TargetAttributes = {
 					A0F81AE21C7EF57A0008AE8F = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = A779BZP6F4;
 						LastSwiftMigration = 1150;
 					};
 					A0F81AF61C7EF57A0008AE8F = {
@@ -166,6 +176,9 @@
 				Base,
 			);
 			mainGroup = A0F81ADA1C7EF57A0008AE8F;
+			packageReferences = (
+				20A8829824AF589900DBAA83 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = A0F81AE41C7EF57A0008AE8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,7 +357,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -354,8 +368,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = SelfiePactice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.tay.thomas.SelfiePactice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -367,8 +385,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = SelfiePactice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.tay.thomas.SelfiePactice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -381,7 +403,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SelfiePacticeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.tay.thomas.SelfiePacticeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -395,7 +421,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SelfiePacticeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.tay.thomas.SelfiePacticeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -435,6 +465,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20A8829824AF589900DBAA83 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20A8829924AF589900DBAA83 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20A8829824AF589900DBAA83 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		20A8829B24AF589900DBAA83 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20A8829824AF589900DBAA83 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		20A8829D24AF589900DBAA83 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20A8829824AF589900DBAA83 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0F81ADB1C7EF57A0008AE8F /* Project object */;
 }

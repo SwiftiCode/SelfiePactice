@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import Social
+import FacebookCore
+import FacebookShare
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SharingDelegate {
+   
+    
 
     // MARK: Properties
     @IBOutlet weak var myImgaeView: UIImageView!
@@ -26,9 +29,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     // MARK: UIImagePickerControllerDelegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        
-        myImgaeView.image = image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        myImgaeView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true, completion: nil)
     }
     
@@ -36,6 +38,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: ShareDelegate
+    func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
+           print("Share ok")
+       }
+       
+       func sharer(_ sharer: Sharing, didFailWithError error: Error) {
+           print("Share Error")
+       }
+       
+       func sharerDidCancel(_ sharer: Sharing) {
+           dismiss(animated: true, completion: nil)
+       }
     
     // MARK: IBAction
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
@@ -67,40 +82,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func shareSocial(_ sender: UIBarButtonItem) {
         
-        var serviceFacbookAvailable = false
-        var servieTwitterAvailable = false
+        print("start sharing")
         
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
-            serviceFacbookAvailable = true
-        }
+        // prepare for FB share
+        let fbPhoto = SharePhoto()
+        fbPhoto.image = myImgaeView.image
+        fbPhoto.isUserGenerated = true
         
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
-            servieTwitterAvailable = true
-        }
+        // FB Content
+        let content = SharePhotoContent()
+        content.photos = [fbPhoto]
         
-        if servieTwitterAvailable || serviceFacbookAvailable == true {
-            
-            var mySocial:SLComposeViewController
-            
-            if servieTwitterAvailable {
-                
-                mySocial = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                mySocial.add(myImgaeView.image)
-                
-            } else {
-                
-                mySocial = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                mySocial.add(myImgaeView.image)
-            }
-            
-            present(mySocial, animated: true, completion: nil)
-       
+        // FB Dialog
+        let dialog = ShareDialog(fromViewController: self, content: content, delegate: self)
+        dialog.mode = .native
+        if dialog.canShow {
+            dialog.show()
         } else {
-            
-            let myAlert = UIAlertController(title: "Alert", message: "You have no Facebook or Twitter setup", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            myAlert.addAction(okAction)
-            present(myAlert, animated: true, completion: nil)
+            print("error show dialog")
         }
         
         
