@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rYR-k4-xkm">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rYR-k4-xkm">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,22 +16,22 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-ky-sq7">
-                                <rect key="frame" x="20" y="64" width="560" height="536"/>
+                                <rect key="frame" x="40" y="74" width="334" height="632"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ayY-ky-sq7" secondAttribute="height" multiplier="70:67" id="Zmw-sG-6T3"/>
+                                    <constraint firstAttribute="width" secondItem="ayY-ky-sq7" secondAttribute="height" multiplier="167:316" id="1nV-p6-zae"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ayY-ky-sq7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8Yz-zZ-qJo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ayY-ky-sq7" secondAttribute="trailing" id="TB7-rc-sOD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ayY-ky-sq7" secondAttribute="bottom" id="bbM-gO-nvO"/>
-                            <constraint firstItem="ayY-ky-sq7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bsg-py-ana"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ayY-ky-sq7" secondAttribute="trailing" constant="20" id="VYc-wj-0Ia"/>
+                            <constraint firstItem="ayY-ky-sq7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="q6r-Hh-yO2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ayY-ky-sq7" secondAttribute="bottom" constant="30" id="tZg-hS-jwx"/>
+                            <constraint firstItem="ayY-ky-sq7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="vnF-7B-JZV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vrf-WV-cMz">
@@ -52,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="479"/>
+            <point key="canvasLocation" x="1376.8115942028987" y="478.53260869565219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Amt-Dl-YNp">
@@ -60,7 +60,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rYR-k4-xkm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iW4-Lg-rYV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
