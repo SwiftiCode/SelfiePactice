@@ -67,41 +67,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func shareSocial(_ sender: UIBarButtonItem) {
         
-        var serviceFacbookAvailable = false
-        var servieTwitterAvailable = false
-        
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
-            serviceFacbookAvailable = true
-        }
-        
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
-            servieTwitterAvailable = true
-        }
-        
-        if servieTwitterAvailable || serviceFacbookAvailable == true {
-            
-            var mySocial:SLComposeViewController
-            
-            if servieTwitterAvailable {
-                
-                mySocial = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                mySocial.add(myImgaeView.image)
-                
-            } else {
-                
-                mySocial = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                mySocial.add(myImgaeView.image)
-            }
-            
-            present(mySocial, animated: true, completion: nil)
-       
-        } else {
-            
-            let myAlert = UIAlertController(title: "Alert", message: "You have no Facebook or Twitter setup", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            myAlert.addAction(okAction)
-            present(myAlert, animated: true, completion: nil)
-        }
+      
         
         
     }
